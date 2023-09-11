@@ -1,5 +1,8 @@
 name: Intro to Github Actions
 
+env:
+  NAME: "John Doe"
+
 # When does this workflow run
 on:
   push:
@@ -9,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - run: echo "Welcome ${{ env.NAME }}"
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v2.4.0
@@ -29,7 +34,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Install dependencies
+      - name: Build
         run: pnpm install
 
       - name: Build
