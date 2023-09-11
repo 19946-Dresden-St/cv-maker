@@ -6,27 +6,17 @@ on:
 
 # What will be executed
 jobs:
-  build-test: # Name of the job
+  pnpm-test: # Name of the job
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4  # Checkout the repository -> gets the code, "uses" -> action préfaite
 
-      - uses: oven-sh/setup-bun@v1
+      - uses: pnpm/action-setup@v2
         with:
-          bun-version: latest
-
-      - name: Install dependencies
-        run: bun install
-
-      - name: Build
-        run: bun run build
-
-      - name: Run the server
-        run: |
-          bun run preview & 
-          sleep 5
-
-      - name: Curl the server
-        run: curl -I http://localhost:4173
+          version: 8
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
+            - args: [--global, gulp, prettier, typescript]
 
       - run: echo "Hello World (:" # Shell script to run
