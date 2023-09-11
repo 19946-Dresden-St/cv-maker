@@ -6,8 +6,27 @@ on:
 
 # What will be executed
 jobs:
-  hello-world:
+  build-test: # Name of the job
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2  # Checkout the repository -> gets the code, "uses" -> action préfaite
+      - uses: actions/checkout@v4  # Checkout the repository -> gets the code, "uses" -> action préfaite
+
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build
+        run: bun run build
+
+      - name: Run the server
+        run: |
+          bun run preview & 
+          sleep 5
+
+      - name: Curl the server
+        run: curl -I http://localhost:4173
+
       - run: echo "Hello World (:" # Shell script to run
