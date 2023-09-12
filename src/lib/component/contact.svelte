@@ -22,7 +22,7 @@
 		name: 'Mohammad-Amine Banaei',
 		nationality: 'Nationalité Française',
 		phone: '+33 6 61 93 90 82',
-		email: 'mohammadamine.banaei@pm.me',
+		email: 'toto@gmail.com',
 		links: [
 			{
 				name: 'LinkedIn',
