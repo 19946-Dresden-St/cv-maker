@@ -61,7 +61,7 @@ jobs:
 
       - name: Push on repo
         run: |
-          git add /static && git commit -m "updt files" && git push
+          git add ./static && git commit -m "updt files" && git push
 
 
   deploy:
