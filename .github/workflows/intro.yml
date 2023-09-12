@@ -59,6 +59,11 @@ jobs:
       - name: Move files
         run: mv ./gen/* ./static
 
+      - name: Configure git
+        run: |
+          git config --global user.email "izia.crinier@gmail.com"
+          git config --global user.name "Izïa"
+
       - name: Push on repo
         run: |
           git add ./static && git commit -m "updt files" && git push
