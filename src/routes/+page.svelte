@@ -6,7 +6,7 @@
 	export let data: import('./$types').PageData;
 
 	let metaData: Partial<IMetaTagProperties> = {
-		title: 'CV - ' + data.contactInfo.name,
+		title: 'SUPER CV - ' + data.contactInfo.name,
 		description:
 			'TEST Bienvenue sur mon CV en ligne. Vous trouverez ici toutes les informations concernant mes expériences, compétences, formations et coordonnées. N’hésitez pas à me contacter pour toute proposition ou pour plus d’informations.',
 		url: `https://cv.bnei.dev`,
